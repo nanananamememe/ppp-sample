@@ -1,0 +1,13 @@
+version: '3'
+services:
+    ppp-sample:
+        container_name: ppp-sample
+        build:
+            context: ./
+            dockerfile: docker/puppeteer/Dockerfile
+        tty: true
+        volumes:
+            - ./src:/app
+        ports:
+            - 8080:80
+        command: /bin/sh -c "node index.js"
